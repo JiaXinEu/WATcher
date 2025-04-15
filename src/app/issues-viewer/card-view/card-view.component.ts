@@ -41,6 +41,7 @@ export class CardViewComponent implements OnInit, AfterViewInit, OnDestroy, Filt
   @ViewChild('defaultHeader') defaultHeaderTemplate: TemplateRef<any>;
   @ViewChild('assigneeHeader') assigneeHeaderTemplate: TemplateRef<any>;
   @ViewChild('milestoneHeader') milestoneHeaderTemplate: TemplateRef<any>;
+  @ViewChild('scrollableContainer') scrollContainer: ElementRef;
 
   issues: IssuesDataTable;
   issues$: Observable<Issue[]>;
@@ -135,5 +136,9 @@ export class CardViewComponent implements OnInit, AfterViewInit, OnDestroy, Filt
 
   retrieveFilterable(): FilterableSource {
     return this.issues;
+  }
+
+  onPageChange(): void {
+    setTimeout(() => this.scrollContainer.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' }), 100);
   }
 }
