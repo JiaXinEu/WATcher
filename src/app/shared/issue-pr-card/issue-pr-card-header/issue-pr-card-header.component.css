@@ -12,6 +12,10 @@ span.octicon {
   word-break: break-word;
 }
 
+.mat-card-title:hover {
+  cursor: pointer;
+}
+
 .column-header .mat-card-title {
   font-size: 14px;
 }
